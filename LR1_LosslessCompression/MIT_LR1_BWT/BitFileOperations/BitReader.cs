@@ -15,7 +15,7 @@
 
 		public bool EOF()
 		{
-			return pos >= lastPos;
+			return pos > lastPos;
 		}
 
 		private int ReadHeader()
