@@ -7,8 +7,8 @@
 	/// </summary>
 	class SimpleBitReader : IBitReader
 	{
-		readonly bool[] data;
-		int pos = 0;
+		protected readonly bool[] data;
+		protected int pos = 0;
 
 		public SimpleBitReader(bool[] data)
 		{

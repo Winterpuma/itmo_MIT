@@ -9,7 +9,7 @@ namespace MIT_LR1_BWT.BitFileOperations
 	/// </summary>
 	class SimpleBitWriter : IBitWriter
 	{
-		List<bool> data = new List<bool>();
+		protected readonly List<bool> data = new List<bool>();
 
 		public void WriteBit(bool b)
 		{
@@ -20,11 +20,16 @@ namespace MIT_LR1_BWT.BitFileOperations
 		{
 			var byteBits = BitOperations.ConvertByteToBoolArray(b);
 
-			foreach (var bb in byteBits)
+			WriteRange(byteBits);
+		}
+
+		public void WriteRange(IEnumerable<bool> b)
+		{
+			foreach (var bb in b)
 				WriteBit(bb);
 		}
 
-		public bool[] GetAllData()
+		public virtual bool[] FinishAndGetAllData()
 		{
 			return data.ToArray();
 		}

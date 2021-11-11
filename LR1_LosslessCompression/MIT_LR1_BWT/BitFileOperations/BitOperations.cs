@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace MIT_LR1_BWT.BitFileOperations
 {
@@ -36,6 +37,32 @@ namespace MIT_LR1_BWT.BitFileOperations
 			}
 
 			return result;
+		}
+
+		public static byte[] GetByteArray(bool[] boolArr)
+		{
+			int len = boolArr.Length;
+			int bytes = len >> 3;
+			if ((len & 0x07) != 0) ++bytes;
+			byte[] byteArr = new byte[bytes];
+			for (int i = 0; i < boolArr.Length; i++)
+			{
+				if (boolArr[i])
+					byteArr[i >> 3] |= (byte)(1 << (i & 0x07));
+			}
+
+			return byteArr;
+		}
+
+		public static bool[] GetBoolArray(byte[] byteArr)
+		{
+			BitArray bitArray = new BitArray(byteArr);
+
+			var boolArr = new bool[bitArray.Length];
+
+			bitArray.CopyTo(boolArr, 0);
+
+			return boolArr;
 		}
 	}
 }
