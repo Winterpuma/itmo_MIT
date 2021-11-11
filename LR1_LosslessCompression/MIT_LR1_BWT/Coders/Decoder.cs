@@ -10,10 +10,10 @@ namespace MIT_LR1_BWT.Coders
 			var byteSrcData = File.ReadAllBytes(srcFile);
 
 			var decodedHuff = Huffman.HuffDecoder.Code(byteSrcData);
-			//var decodedMTF = MTF.MTFDecoder.Code(decodedHuff);
-			//var decodedBWT = BWT.BWTDecoder.Code(decodedMTF);
+			var decodedMTF = MTF.MTFDecoder.Code(decodedHuff);
+			var decodedBWT = BWT.BWTDecoder.Code(decodedMTF);
 
-			File.WriteAllBytes(dstFile, decodedHuff);
+			File.WriteAllBytes(dstFile, decodedBWT);
 		}
 	}
 }
