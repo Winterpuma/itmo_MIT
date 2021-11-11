@@ -5,6 +5,15 @@ namespace MIT_LR1_BWT.Coders
 {
 	class Encoder : ICoder
 	{
-		public void Code(Stream src, Stream dst) => throw new NotImplementedException();
+		public void Code(string srcFile, string dstFile)
+		{
+			var byteSrcData = File.ReadAllBytes(srcFile);
+
+			//var codedBWT = BWT.BWTEncoder.Code(byteSrcData);
+			//var codedMTF = MTF.MTFEncoder.Code(codedBWT);
+			var codedHuff = Huffman.HuffEncoder.Code(byteSrcData);
+
+			File.WriteAllBytes(dstFile , codedHuff);
+		}
 	}
 }
