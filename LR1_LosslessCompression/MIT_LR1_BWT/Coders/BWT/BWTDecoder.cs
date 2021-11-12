@@ -5,7 +5,11 @@ namespace MIT_LR1_BWT.Coders.BWT
 	class BWTDecoder
 	{
 		public static byte[] Code(byte[] input)
-		{
+        {
+            // If file is empty
+            if (input.Length == 0)
+                return input;
+
             var length = input.Length - 4;
             var I = ByteArrToInt(input, input.Length - 4);
             var freq = new int[256];

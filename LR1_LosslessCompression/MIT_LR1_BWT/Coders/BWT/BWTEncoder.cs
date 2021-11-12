@@ -6,6 +6,10 @@ namespace MIT_LR1_BWT.Coders.BWT
 	{
 		public static byte[] Code(byte[] input)
 		{
+			// If file is empty
+			if (input.Length == 0)
+				return input;
+
 			var output = new byte[input.Length + 4];
 			var newInput = new short[input.Length + 1];
 

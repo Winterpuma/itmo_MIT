@@ -4,6 +4,10 @@
 	{
 		public static byte[] Code(byte[] src, int alphabetSize = 256)
 		{
+			// If file is empty
+			if (src.Length == 0)
+				return src;
+
 			byte[] dict = new byte[alphabetSize];
 			byte[] res = new byte[src.Length];
 
