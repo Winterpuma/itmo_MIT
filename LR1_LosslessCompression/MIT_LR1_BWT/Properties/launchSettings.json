@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MIT_LR1_BWT": {
+      "commandName": "Project",
+      "commandLineArgs": "book2 book2_res"
+    }
+  }
+}

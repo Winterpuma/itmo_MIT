@@ -50,6 +50,7 @@ namespace MIT_LR1_BWT.Coders.BWT
             }
             return output;
         }
+
         private static int ByteArrToInt(byte[] input, int startIndex)
         {
             return BitConverter.ToInt32(input, startIndex);

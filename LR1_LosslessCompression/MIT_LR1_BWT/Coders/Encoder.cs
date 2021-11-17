@@ -14,6 +14,10 @@ namespace MIT_LR1_BWT.Coders
 			var codedHuff = Huffman.HuffEncoder.Code(codedMTF);
 
 			File.WriteAllBytes(dstFile , codedHuff);
+
+			Console.WriteLine($"orig size: {byteSrcData.Length}");
+			Console.WriteLine($"coded size: {codedHuff.Length}");
+			Console.WriteLine($"bit per symbol: {((float)codedHuff.Length * 8) / (float)byteSrcData.Length}");
 		}
 	}
 }
